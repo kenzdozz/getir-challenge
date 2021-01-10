@@ -22,10 +22,10 @@ const validatePayload = (payload) => {
   } = payload;
 
   const errors = {};
-  if (typeof minCount !== 'number') {
+  if (typeof minCount !== 'number' || Number.isNaN(minCount)) {
     errors.minCount = '"minCount" is required and must be a number';
   }
-  if (typeof maxCount !== 'number') {
+  if (typeof maxCount !== 'number' || Number.isNaN(maxCount)) {
     errors.maxCount = '"maxCount" is required and must be a number';
   }
   if (!isValidDate(startDate)) {
