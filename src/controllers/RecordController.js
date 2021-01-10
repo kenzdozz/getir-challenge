@@ -12,14 +12,19 @@ const RecordController = {
   getRecords: async (req, res) => {
     try {
       const {
-        startDate, endDate, minCount, maxCount,
+        startDate = req.query.startDate,
+        endDate = req.query.endDate,
+        minCount = Number(req.query.minCount),
+        maxCount = Number(req.query.maxCount),
       } = req.body;
 
       /**
        * Validate if request body contains required JSON payload
        * and return error is available
        */
-      const validate = validatePayload(req.body);
+      const validate = validatePayload({
+        startDate, endDate, maxCount, minCount,
+      });
       if (!validate.isValid) {
         return Response.send(res, StatusCodes.BAD_REQUEST, {
           code: 400,

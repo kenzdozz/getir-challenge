@@ -29,6 +29,17 @@ describe('Records Endpoint', () => {
     done();
   });
 
+  test('should get the records by GET request', async (done) => {
+    const res = await request(app).get('/v1/records?minCount=0&maxCount=1000&startDate=2015-12-22&endDate=2021-01-10');
+
+    expect(res.statusCode).toEqual(200);
+    expect(res.body.code).toEqual(0);
+    expect(res.body.msg).toEqual('Success');
+    expect(Array.isArray(res.body.records)).toEqual(true);
+    expect(res.body.records.length).toEqual(4);
+    done();
+  });
+
   test('should return validation errors', async (done) => {
     const res = await request(app).post('/v1/records').send({
       minCount: null,

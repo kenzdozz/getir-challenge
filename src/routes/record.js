@@ -6,6 +6,8 @@ const RecordController = require('../controllers/RecordController');
  */
 const recordRouter = express.Router();
 
-recordRouter.route('/').post(RecordController.getRecords);
+recordRouter.route('/')
+  .post(RecordController.getRecords)
+  .get(RecordController.getRecords);
 
 module.exports = recordRouter;
