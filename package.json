@@ -1,0 +1,37 @@
+{
+  "name": "getir-challenge",
+  "version": "1.0.0",
+  "description": "A RESTful API with a single endpoint that fetches the data in a MongoDB collection",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "cross-env DATABASE_URI=mongodb://localhost:27017 jest --collectCoverage --forceExit --detectOpenHandles",
+    "lint": "eslint --ignore-path .gitignore ./",
+    "start": "node src/server",
+    "start:dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenzdozz/getir-challenge.git"
+  },
+  "author": "Kenneth Onah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kenzdozz/getir-challenge/issues"
+  },
+  "homepage": "https://github.com/kenzdozz/getir-challenge#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.11",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
+    "supertest": "^6.0.1"
+  }
+}
